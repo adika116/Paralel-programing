@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: uas_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - uas-network
+
+  laravel-app:
+    build: ./laravel-app
+    ports:
+      - "8123:8123"
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: uas_db
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - uas-network
+
+volumes:
+  postgres_data:
+
+networks:
+  uas-network:
+    driver: bridge
