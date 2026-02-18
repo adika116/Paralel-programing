@@ -2,6 +2,13 @@
 
 Aplikasi monitoring konsumsi energi listrik (Smart Grid) dengan parallel processing menggunakan Laravel, Python Dask, dan PostgreSQL.
 
+### NIM = 235510013
+### NAMA MAHASISWA = ADIKA VEMMASH NUGROHO
+
+
+### Youtube Link Video = [Youtube Video](https://youtube.com/shorts/4mKBSKM7_9Q?si=Qjc144K8wZKNYtLv)
+
+
 ## 📋 Daftar Isi
 - [Arsitektur](#arsitektur)
 - [Persyaratan Sistem](#persyaratan-sistem)
@@ -9,7 +16,7 @@ Aplikasi monitoring konsumsi energi listrik (Smart Grid) dengan parallel process
 - [Cara Menjalankan Aplikasi](#cara-menjalankan-aplikasi)
 - [Cara Menggunakan](#cara-menggunakan)
 - [Troubleshooting](#troubleshooting)
-- [Endpoint API](#endpoint-api)
+- [Endpoint API](#endpoint-api)s
 
 ## 🏗️ Arsitektur
 
@@ -221,10 +228,7 @@ Error: bind: address already in use
 # Windows
 netstat -ano | findstr :8123
 
-# macOS/Linux
-lsof -i :8123
-
-# Matikan aplikasi yang menggunakan port tersebut
+# Matikan aplikasi
 # Atau ubah port di docker-compose.yml
 ```
 
@@ -313,12 +317,7 @@ SELECT * FROM energy_consumption LIMIT 5;
 \q
 ```
 
-## 📝 Catatan Penting
 
-1. **Pertama kali menjalankan** akan memakan waktu lebih lama karena download image
-2. **Data sample** sudah otomatis ter-insert saat container pertama kali dijalankan
-3. **Parallel processing** menggunakan 4 partisi Dask untuk optimasi performa
-4. **Port 8123, 5000, dan 5432** harus tersedia di sistem Anda
 
 ## 🎯 Fitur Parallel Processing
 
@@ -327,11 +326,3 @@ Aplikasi ini menggunakan Dask DataFrame untuk:
 - Memproses data secara paralel
 - Menghitung statistik (average, max, count) dengan efisien
 - Menangani dataset besar dengan performa optimal
-
-## 📞 Bantuan Lebih Lanjut
-
-Jika mengalami masalah:
-1. Cek log dengan `docker-compose logs`
-2. Pastikan semua port tidak digunakan aplikasi lain
-3. Restart Docker daemon
-4. Rebuild container dengan `docker-compose up --build`
