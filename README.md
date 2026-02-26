@@ -6,7 +6,7 @@ Aplikasi monitoring konsumsi energi listrik (Smart Grid) dengan parallel process
 ### NAMA MAHASISWA = ADIKA VEMMASH NUGROHO
 
 
-### Youtube Link Video = [Youtube Video](https://youtube.com/shorts/4mKBSKM7_9Q?si=Qjc144K8wZKNYtLv)
+### https://youtu.be/8zIwBTrJTg8?si=FdR0Po7cmJtbCuS5
 
 
 ## 📋 Daftar Isi
